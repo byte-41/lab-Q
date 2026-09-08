@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Gean Carlos">
+    <meta name="description" content="Panel de control privado con perfil, historial y métricas del laboratorio.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/icon.png">
+    <title>Panel de control | Laboratorio Quimico</title>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html">Laboratorio Quimico</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu1">
+            <span class="menu-label">Menu</span>
+        </button>
+        <nav id="menu1" class="main-nav" aria-label="Navegacion principal">
+            <a href="index.html">Inicio</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="finanzas.html">Finanzas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="panel-intro" aria-labelledby="titulo-panel">
+            <p class="etiqueta">Área privada</p>
+            <h1 id="titulo-panel">Panel de control</h1>
+            <p>Consulta el perfil del usuario, revisa el historial de accesos y comprueba la información disponible según tu rol.</p>
+        </section>
+
+        <section class="seccion-dashboard">
+            <h2>Mi perfil</h2>
+            <div class="tarjeta-perfil">
+                <div id="info-usuario" class="info-usuario">
+                    <p><strong>Nombre:</strong> <span id="usuario-nombre">-</span></p>
+                    <p><strong>Email:</strong> <span id="usuario-email">-</span></p>
+                    <p><strong>Perfil:</strong> <span id="usuario-perfil" class="badge-perfil">-</span></p>
+                    <p><strong>Empresa:</strong> <span id="usuario-empresa">-</span></p>
+                    <p><strong>Registro:</strong> <span id="usuario-registro">-</span></p>
+                </div>
+                <button id="btn-logout" class="action-button">Cerrar sesión</button>
+            </div>
+        </section>
+
+        <section id="seccion-director" class="seccion-dashboard privada" hidden>
+            <h2>Panel del director</h2>
+            <p class="etiqueta">Gestión completa del sistema y acceso a métricas generales.</p>
+            <div class="grid-dashboard">
+                <div class="tarjeta-estadistica">
+                    <h3>Total de usuarios</h3>
+                    <p class="numero" id="total-usuarios">0</p>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>Accesos registrados</h3>
+                    <p class="numero" id="total-accesos">0</p>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>Clientes activos</h3>
+                    <p class="numero" id="clientes-activos">0</p>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>Último acceso</h3>
+                    <p id="ultimo-acceso">-</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="seccion-tecnico" class="seccion-dashboard privada" hidden>
+            <h2>Panel técnico</h2>
+            <p class="etiqueta">Control del trabajo analítico y de los reportes del laboratorio.</p>
+            <div class="grid-dashboard">
+                <div class="tarjeta-estadistica">
+                    <h3>Análisis disponibles</h3>
+                    <p class="numero">6</p>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>Tareas completadas</h3>
+                    <p class="numero" id="tareas-completadas">0</p>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>En progreso</h3>
+                    <p class="numero">0</p>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>Reportes generados</h3>
+                    <p class="numero" id="reportes-generados">0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="seccion-cliente" class="seccion-dashboard privada" hidden>
+            <h2>Área del cliente</h2>
+            <p class="etiqueta">Consulta rápida de servicios y actividad asociada.</p>
+            <div class="grid-dashboard">
+                <div class="tarjeta-estadistica">
+                    <h3>Servicios contratados</h3>
+                    <p class="numero" id="servicios-cliente">0</p>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>Órdenes pendientes</h3>
+                    <p class="numero">0</p>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>Completadas</h3>
+                    <p class="numero">0</p>
+                </div>
+                <div class="tarjeta-estadistica">
+                    <h3>Gasto total</h3>
+                    <p id="gasto-total">CLP $0</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-dashboard">
+            <h2>Historial de actividades</h2>
+            <div class="tabla-historial">
+                <table id="tabla-accesos">
+                    <thead>
+                        <tr>
+                            <th>Acción</th>
+                            <th>Detalles</th>
+                            <th>Fecha y hora</th>
+                            <th>Página</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-historial">
+                        <tr>
+                            <td colspan="4" style="text-align: center; color: #999;">Cargando historial...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccion-dashboard">
+            <h2>Información técnica</h2>
+            <div class="certificado">
+                <h3>Informe de sesión</h3>
+                <ul id="evidencia-desempeño" class="lista-evidencia">
+                    <li><strong>Almacenamiento:</strong> sistema de persistencia de datos activo</li>
+                    <li><strong>Autenticación:</strong> control de sesiones implementado</li>
+                    <li><strong>Perfiles:</strong> tres niveles de acceso diferenciados</li>
+                    <li><strong>Auditoría:</strong> registro automático de actividades</li>
+                    <li><strong>Permisos:</strong> control por rol</li>
+                </ul>
+                <div id="resumen-tecnico" class="resumen-tecnico"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p><strong>Laboratorio Quimico</strong></p>
+        <p>Analisis quimicos claros y fiables.</p>
+        <p>
+            <a href="mailto:hola@laboratorioquimico.es">hola@laboratorioquimico.es</a>
+            | <a href="tel:+34600123456">600 123 456</a>
+        </p>
+        <p>&copy; 2026 Laboratorio Quimico. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/java.js"></script>
+</body>
+</html>

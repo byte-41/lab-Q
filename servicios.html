@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Gean Carlos">
+        <meta name="description" content="Catálogo de servicios analíticos para agua, suelo, materiales y control de calidad.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="img/icon.png">
+        <title>Servicios | Laboratorio Quimico</title>
+    </head>
+    <body>
+    <header class="site-header">
+        <a class="brand" href="index.html">Laboratorio Quimico</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu1">
+            <span class="menu-label">Menu</span>
+        </button>
+        <nav id="menu1" class="main-nav" aria-label="Navegacion principal">
+            <a href="index.html">Inicio</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a class="active" aria-current="page" href="servicios.html">Servicios</a>
+            <a href="finanzas.html">Finanzas</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="services-catalog" aria-labelledby="titulo-catalogo">
+            <p class="etiqueta">Servicios</p>
+            <h1 id="titulo-catalogo">Catálogo de análisis</h1>
+            <p>Selecciona los servicios que necesitas. Cada tarjeta incluye información útil para evaluar el alcance del análisis y su presupuesto estimado.</p>
+            <div id="servicios-container" class="services-grid"></div>
+
+            <div class="budget-summary">
+                <h3>Resumen de presupuesto</h3>
+                <p id="servicios-seleccionados">Servicios seleccionados: 0</p>
+                <p id="costo-total">Costo total estimado: CLP $0</p>
+                <p id="descuento-aplicado" hidden>Descuento por volumen: -CLP $<span id="valor-descuento">0</span></p>
+                <p id="precio-final">Precio final: CLP $0</p>
+                <div class="budget-actions">
+                    <button id="btn-contratar" class="action-button" type="button" disabled>Contratar análisis</button>
+                    <button id="btn-resetear" class="secondary-button" type="button">Limpiar selección</button>
+                </div>
+                <p id="confirmacion-contratacion" class="form-confirmation" role="status" aria-live="polite" hidden></p>
+            </div>
+        </section>
+
+        <section class="simulation-section" aria-labelledby="titulo-simuladores">
+            <p class="etiqueta">Herramientas</p>
+            <h1 id="titulo-simuladores">Simuladores operativos</h1>
+            <p>Dos cálculos útiles para apoyar la valoración técnica y la planificación del trabajo en laboratorio y marketing.</p>
+
+            <div class="simulator-grid">
+                <article class="accordion-item">
+                    <button class="accordion-toggle" type="button" aria-expanded="false">
+                        <span>Simulador de mezcla</span>
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <form id="form-mezcla" class="mix-form">
+                            <label for="componente-a">Reactivo ácido (ml)</label>
+                            <input id="componente-a" name="componente-a" type="number" min="0" max="500" step="0.1" required>
+
+                            <label for="ph-a">pH del reactivo ácido</label>
+                            <input id="ph-a" name="ph-a" type="number" min="0" max="14" step="0.1" required>
+
+                            <label for="componente-b">Reactivo base (ml)</label>
+                            <input id="componente-b" name="componente-b" type="number" min="0" max="500" step="0.1" required>
+
+                            <label for="ph-b">pH del reactivo base</label>
+                            <input id="ph-b" name="ph-b" type="number" min="0" max="14" step="0.1" required>
+
+                            <button class="action-button" type="submit">Calcular pH</button>
+                        </form>
+                        <p id="resultado-mezcla" class="mix-result" aria-live="polite">Introduce los datos para ver el pH estimado.</p>
+                        <p id="advertencia-ph" class="ph-warning" role="alert" aria-live="assertive" hidden></p>
+                        <p class="simulator-note">Es una estimación orientativa. La comprobación final debe hacerse con un medidor de pH calibrado.</p>
+                    </div>
+                </article>
+
+                <article class="accordion-item">
+                    <button class="accordion-toggle" type="button" aria-expanded="false">
+                        <span>Estimador de rendimiento</span>
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <form id="form-google-ads" class="mix-form">
+                            <label for="presupuesto-mensual">Presupuesto mensual (CLP)</label>
+                            <input id="presupuesto-mensual" name="presupuesto-mensual" type="number" min="1" step="1" required>
+
+                            <label for="cpc-google">CPA / CPC (CLP por clic)</label>
+                            <input id="cpc-google" name="cpc-google" type="number" min="1" step="0.01" required>
+
+                            <label for="ctr-google">CTR (%)</label>
+                            <input id="ctr-google" name="ctr-google" type="number" min="0.1" max="100" step="0.1" required>
+
+                            <label for="tasa-conversion-google">Tasa de conversión (%)</label>
+                            <input id="tasa-conversion-google" name="tasa-conversion-google" type="number" min="0.1" max="100" step="0.1" required>
+
+                            <label for="valor-conversion-google">Valor por conversión (CLP)</label>
+                            <input id="valor-conversion-google" name="valor-conversion-google" type="number" min="1" step="1" required>
+
+                            <button class="action-button" type="submit">Calcular rendimiento</button>
+                        </form>
+                        <p id="resultado-google-ads" class="mix-result" aria-live="polite">Introduce los valores para estimar el rendimiento de la campaña.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p><strong>Laboratorio Quimico</strong></p>
+        <p>Analisis quimicos claros y fiables.</p>
+        <p>
+            <a href="mailto:hola@laboratorioquimico.es">hola@laboratorioquimico.es</a>
+            <a href="tel:+34600123456">600 123 456</a>
+        </p>
+        <p>&copy; 2026 Laboratorio Quimico. Todos los derechos reservados.</p>
+    </footer>
+    <script src="js/java.js"></script>
+</body>
+</html>
